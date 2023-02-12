@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  height: var(--innerH);
+}
+
+* {
+  font-family: sans;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+#outlet {
+  height: calc(var(--innerH) - 55px);
+  background-color: var(--window-bg);
+  color: var(--window-clr);
+  padding-top: 5px;
+  overflow: scroll;
+}
+
+@media only screen and (min-width:600px) {
+  #outlet {
+    padding-left: 50px;
+  }
+}

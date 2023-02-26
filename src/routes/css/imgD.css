@@ -1,0 +1,282 @@
+.imgD-box {
+	margin: 0;
+	padding: 0;
+	--w: min(98%, 400px);
+	width: var(--w);
+	position: relative;
+	left: calc(50% - var(--w) / 2);
+}
+
+.imgD-form {
+	border-radius: 10px;
+	background: linear-gradient(30deg, yellowgreen, gold);
+}
+
+.imgD-form {
+	/*	background: red;*/
+	padding: 20px;
+}
+
+.imgD-h2 {
+	/*	background: green;*/
+	padding: 5px 20px;
+	border-left: 4px solid blue;
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.input-box {
+	/*	background: red;*/
+	border-radius: 5px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	box-shadow: inset 0 0 5px #333;
+	margin: 10px 0;
+}
+
+.input-box>input {
+	border: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 10px;
+	background: 0;
+	outline: none;
+	font-size: 1rem;
+}
+
+.imgD-icon {
+	/*	background: green;*/
+	height: 100%;
+	padding: 0 5px;
+}
+
+.imgD-icon:hover {
+	opacity: 1 !important;
+}
+
+.add-url,
+.imgD-submit {
+	padding: 5px 15px;
+	display: inline-block;
+	border: 0;
+	border-radius: 5px;
+	margin: 10px 10px 0 0;
+	box-shadow: 0 4px 0px rgba(0, 0, 0, 0.6);
+	font-size: 1rem;
+	user-select: none;
+	color: #fff;
+	outline: none;
+}
+
+.add-url {
+	background: rgba(0, 0, 0, 1.0);
+}
+
+.imgD-submit {
+	background: green;
+}
+
+.add-url:active,
+.imgD-submit:active {
+	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.6);
+	transform: translateY(3px);
+}
+
+#urls-box {
+	max-height: 180px;
+	overflow: scroll;
+	scroll-behavior: smooth;
+}
+
+.urls-box-footer {
+	display: block;
+	font-size: 0.8rem;
+	position: relative;
+	top: -8px;
+	left: 20px;
+}
+
+[animate='jiggle'] {
+	animation: jiggle 500ms ease-in-out 10ms;
+}
+
+[animate='jiggle1'] {
+	animation: jiggle 500ms ease-in-out 400ms;
+}
+
+@keyframes jiggle {
+	0% {
+		transform: translateX(-10px);
+	}
+
+	10% {
+		transform: translateX(0px);
+	}
+
+	20% {
+		transform: translateX(10px);
+	}
+
+	30% {
+		transform: translateX(0px);
+	}
+
+	40% {
+		transform: translateX(-10px);
+	}
+
+	50% {
+		transform: translateX(0px);
+	}
+
+	60% {
+		transform: translateX(10px);
+	}
+
+	70% {
+		transform: translateX(0px);
+	}
+
+	80% {
+		transform: translateX(10px);
+	}
+
+	90% {
+		transform: translateX(0px);
+	}
+
+	100% {
+		transform: translateX(-10px);
+	}
+}
+
+#result-panel {
+	position: relative;
+	background: #eef;
+	margin: 5px;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding-bottom: 5px;
+	overflow: hidden;
+	transition: 400ms;
+	height: 190px;
+}
+
+#result-panel * {
+	font-size: 1rem;
+}
+
+/*imgD result heading*/
+#ir-head {
+	padding: 6px 20px;
+	margin: 0 10px;
+	border-bottom: 2px solid #333;
+	font-size: 1.2rem !important;
+}
+
+.ir-info {
+	/*	background: green;*/
+	padding: 5px;
+	margin: 1px 10px;
+	display: flex;
+}
+
+.ir-info>span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10px;
+	/*	background: orange;*/
+}
+
+#result-panel>center {
+	margin: 1rem 0;
+}
+
+#result-panel button {
+	display: inline-block;
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 4px #333;
+	padding: 10px 20px;
+	width: auto;
+	margin: 0;
+	background: royalblue;
+	color: #fff;
+}
+
+#result-panel button:active {
+	box-shadow: 0 1px #333;
+	transform: translateY(3px);
+}
+
+.loader-box {
+	background: #eef;
+	border-radius: 10px;
+	margin: 5px;
+	flex-direction: column;
+	padding: 10px;
+	grid-gap: 10px;
+	box-sizing: border-box;
+	height: 115px;
+	transition: 400ms;
+	overflow: hidden;
+	text-align: center;
+}
+
+.loader-spinner {
+	display: inline-block;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: 10px solid rgba(0, 0, 0, 0.1);
+	border-top-color: royalblue;
+	animation: spin 1200ms linear 0s infinite;
+	box-sizing: border-box;
+}
+
+[imgd="loading"] #result-panel,
+[imgd='loading'] .err,
+[imgD='data'] .err,
+[imgd="data"] .loader-box,
+[imgd="err"] .loader-box,
+[imgd="err"] #result-panel,
+[imgd='empty'] #result-panel,
+[imgd='empty'] .loader-box,
+[imgd='empty'] .err {
+	height: 0 !important;
+	margin: 0 !important;
+	opacity: 0 !important;
+	padding: 0 !important;
+}
+
+.err {
+	background: red;
+	margin: 5px;
+	transition: 400ms;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 1.2rem;
+	color: #fff;
+	font-weight: 600;
+	box-sizing: border-box;
+	height: 65px;
+}
+
+.err>center:nth-child(2) {
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin: 5px;
+}
+
+[animate="blinking"] {
+	animation: blink 600ms linear infinite alternate;
+}
+
+@keyframes blink {
+	from{color: rgba(0, 0, 0, 0);}
+	to{color: rgba(0, 0, 0, 1);}
+}

@@ -28,3 +28,33 @@ body {
     padding-left: 50px;
   }
 }
+
+.d-no{
+  display: none !important;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spin {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+
+[box="collapsed"] {
+/*  transform-origin: 50% 0;*/
+  height: 0 !important;
+  padding:0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+/*  transform: scaleY(0);*/
+  opacity: 0;
+}
+
+@keyframes fade {
+  from{opacity:  0}
+  to {opacity:  1}
+}

@@ -1,4 +1,4 @@
-.imgD-box {
+.imgD-box , #ytdl-box{
 	margin: 0;
 	padding: 0;
 	--w: min(98%, 400px);
@@ -10,10 +10,6 @@
 .imgD-form {
 	border-radius: 10px;
 	background: linear-gradient(30deg, yellowgreen, gold);
-}
-
-.imgD-form {
-	/*	background: red;*/
 	padding: 20px;
 }
 
@@ -57,7 +53,7 @@
 	opacity: 1 !important;
 }
 
-.add-url,
+.add-url, .submit-btn,
 .imgD-submit {
 	padding: 5px 15px;
 	display: inline-block;

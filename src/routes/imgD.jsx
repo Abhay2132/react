@@ -7,7 +7,7 @@ export default function ImgD() {
 	var [urls, setURLs] = useState(['']);
 	var [token, setToken] = useState();
 	var [data, setData] = useState({imgs:0, pages:0,cn:"d-no"});
-
+	// console.log(setURLs(['']))
 	var [imgD, setImgD] = useState("empty")
 
 	const label = useRef();
@@ -82,18 +82,10 @@ export default function ImgD() {
 	}
 
 	function remove (index, del){
+		// console.log("remove : " , urls);
 		if(!del) return urls[index] = '';
 		if(urls.length == 1) return setURLs([''])
-		setURLs(URLs => {
-			let newArr = new Array();
-			for(let i=0; i<URLs.length; i++){
-				if(i==index) {
-					continue;
-				};
-				newArr.push(URLs[i])
-			}
-			return newArr;
-		})
+		setURLs([...urls.slice(0,index), ...urls.slice(index+1)]);
 	}
 
 	function logData (){
@@ -106,6 +98,7 @@ export default function ImgD() {
 			<h2 onClick={logData} className="imgD-h2"> Enter URLs </h2>
 			<div id="urls-box" ref={urlsBox}>
 				{urls.map((url, i) => {
+						// console.log(urls);
 						return (<InputBox remove={remove} key={i} index={i} url={url} inputHandler={inputHandler} />)
 					})}
 			<label ref={label} className="urls-box-footer">* Paste new url</label>
@@ -127,9 +120,11 @@ function InputBox ({index, inputHandler, remove, url}){
 		setu(e.target.value)
 	}
 
+	// console.log("inputBOX_url :", url)
 	useEffect(()=>{
+		// console.log("useEffect in InputBox :", url)
 		setu(url);
-	},[]);
+	},[url]);
 
 	let input = useRef();
 	function removeHandler (){

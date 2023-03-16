@@ -9,6 +9,7 @@ import Root from "./routes/root";
 import ErrorPage from "./error";
 import ImgD from "./routes/imgD"
 import Index from "./routes/index";
+import YTDL from "./routes/ytdl"
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: "ytdl",
+        element: <YTDL/>,
+      },
       {
         path: "imgD",
         element: <ImgD/>,

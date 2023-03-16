@@ -1,6 +1,8 @@
+// import "./css/index.css"
+
 import {useEffect} from "react";
-import "./css/index.css"
 import {Link} from "react-router-dom";
+import {IndexItem} from "../ui/ui.jsx"
 
 export default function Index (){
 
@@ -9,6 +11,7 @@ export default function Index (){
 	},[])
 
 	return(<div id="index">
-		<Link to={`/imgD`} className="index-link"><div className="index-img"></div><div className="index-name">ImgD</div></Link>
+		<Link to={`/imgD`} className="index-link"><IndexItem name="ImgD" /></Link>
+		<Link to={`/ytdl`} className="index-link"><IndexItem name="YTDL" /></Link>
 	</div>)
 }

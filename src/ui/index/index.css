@@ -1,0 +1,66 @@
+#index {
+	padding: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.index-link {
+	display:  block;
+/*	background: linear-gradient(45deg, gold, greenyellow);*/
+	width: 150px;
+	aspect-ratio: 5/7;
+	text-decoration: none;
+	margin: 5px;
+
+	border-radius: 0 18px 0 18px;
+}
+
+.index-img {
+	display: block;
+	height: 100px;
+	aspect-ratio: 1/1;
+/*	background: linear-gradient(30deg, yellowgreen, green);*/
+	position: relative;
+	left: calc(50% - 50px);
+	margin: 15px 0;
+	border-radius: 50%;
+}
+
+.index-name {
+/*	background-color: red;*/
+	font-size: 1.4rem;
+	text-align: center;
+	color: #000;
+}
+
+.index-item-desc {
+	font-size: 12px;
+	margin: 5px 10px;
+	border-left: 2px solid royalblue;
+	padding: 5px 10px;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 0 10px 10px 0;
+	color: #444;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+a[href="/imgD"] {
+	background: linear-gradient(45deg, gold, greenyellow);
+}
+
+a[href="/imgD"] .index-img{
+	background: linear-gradient(30deg, yellowgreen, green);
+}
+
+a[href="/ytdl"] {
+	background: linear-gradient(45deg, lightgoldenrodyellow, coral);
+}
+
+a[href="/ytdl"] .index-img{
+	background: linear-gradient(30deg, darkred, orangered);
+}
+

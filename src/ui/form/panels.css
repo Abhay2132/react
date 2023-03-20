@@ -1,0 +1,44 @@
+.error-panel {
+	background: red;
+	margin: 5px;
+	transition: 400ms;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 1.2rem;
+	color: #fff;
+	font-weight: 600;
+	box-sizing: border-box;
+	height: 65px;
+}
+
+.error-panel>center:nth-child(2) {
+	font-size: 0.8rem;
+	font-weight: 400;
+	margin: 5px;
+}
+
+
+.loading-panel {
+	background: #eef;
+	border-radius: 10px;
+	margin: 5px;
+	flex-direction: column;
+	padding: 10px;
+	grid-gap: 10px;
+	box-sizing: border-box;
+	height: 115px;
+	transition: 400ms;
+	overflow: hidden;
+	text-align: center;
+}
+
+.loading-spinner {
+	display: inline-block;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: 10px solid rgba(0, 0, 0, 0.1);
+	border-top-color: royalblue;
+	animation: spin 1200ms linear 0s infinite;
+	box-sizing: border-box;
+}

@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import Root from "./routes/root";
 import ErrorPage from "./error";
 import ImgD from "./routes/imgD"
 import Index from "./routes/index";
 import YTDL from "./routes/ytdl"
+import NoteBook from "./routes/notebook"
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "imgD",
         element: <ImgD/>,
+      },
+      {
+        path:"notebook",
+        element: <NoteBook/>
       },
       {
         path: "",

@@ -1,6 +1,7 @@
 import "./css/imgD.css";
 import { useRef , useState , useEffect } from "react";
 import {wait,delCopy} from "../utilz.js";
+import {Button, Input} from "../ui/form/views.jsx"
 
 export default function ImgD() {
 
@@ -93,18 +94,18 @@ export default function ImgD() {
 	}
 
 	return (
-		<div className="imgD-box" imgd={imgD}>
+		<div className="app imgD-box" imgd={imgD}>
 		<form onSubmit={cancleDefault} className="imgD-form" autoComplete="off">
 			<h2 onClick={logData} className="imgD-h2"> Enter URLs </h2>
 			<div id="urls-box" ref={urlsBox}>
 				{urls.map((url, i) => {
 						// console.log(urls);
-						return (<InputBox remove={remove} key={i} index={i} url={url} inputHandler={inputHandler} />)
+						return (<Input placeholder="Paste Website Link" mode="light" remove={remove} key={i} index={i} url={url} inputHandler={inputHandler} />)
 					})}
 			<label ref={label} className="urls-box-footer">* Paste new url</label>
 			</div>
-			<button className="add-url" onClick={addURL}>Add More</button>
-			<button className="imgD-submit" onClick={onSubmit}>Submit </button>
+			<Button bg="rgba(0,0,0,0.8)" onClick={addURL}>Add More</Button>
+			<Button bg="Green" onClick={onSubmit}>Submit </Button>
 		</form>
 		<Loader/>
 		<DataPanel data={data} />

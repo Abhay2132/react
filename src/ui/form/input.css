@@ -1,0 +1,45 @@
+.iconed-input-box {
+	border-radius: 5px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	box-shadow: inset 0 0 5px #333;
+	margin: 5px;
+}
+
+.iconed-input-box>input {
+	border: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 10px;
+	background: 0;
+	outline: none;
+	font-size: 1rem;
+}
+
+.input-icon {
+	height: 100%;
+	padding: 0 5px;
+}
+
+.input-icon:hover {
+	opacity: 1 !important;
+}
+
+.iconed-input-box[mode=dark] .input-icon {
+	filter: invert(0.9);
+}
+
+.iconed-input-box[mode=dark] {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.iconed-input-box[mode=dark]>input {
+	color: #eee;
+}
+
+.iconed-input-box[mode=dark]>input::placeholder {
+	color: #aaa;
+}

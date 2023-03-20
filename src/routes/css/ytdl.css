@@ -1,5 +1,9 @@
+#ytdl-box {
+	--ytdl-bg: #3f51b5;
+}
+
 .ytdl-form{
-	background: linear-gradient(60deg, yellowgreen, orangered);
+	background: var(--ytdl-bg) ;
 	margin: 0;
 	padding: 10px;
 	margin: 5px;
@@ -7,41 +11,104 @@
 }
 
 .form-h2 {
-	margin: 0;
 	margin: 5px;
 	padding: 5px 10px;
-	background: rgba(0, 0, 0, 0.2);
-	border-left: 2px solid red;
-	color: lemonchiffon;
+	
+	border-left: 2px solid #eee;
+	color: #fff;
 	font-weight: 400;
 	border-radius: 0 10px 10px 0;
 }
 
-.ytdl-url-box {
-	background: rgba(240, 240, 240, 0.5);
+.panel-title {
+	margin: 0;
+	padding: 10px;
+	border-bottom: 2px solid;
+	font-weight: 400;
+}
+
+#videoThumbnail {
+	aspect-ratio: 16/9;
+	width: 100%;
+	background: var(--bg-a);
+	transform: scale(0.8);
 	border-radius: 5px;
-	height: 40px;
-	padding: 0;
+	box-sizing: border-box;
+	background-size: contain !important;
+}
+
+/*  *********************************************************************************  */
+
+#ytdl-data {
+	background: var(--bg-f);
+	border-radius: 5px;
+	box-shadow: 0 0 5px var(--bg-a);
+	margin: 5px;
+	padding-bottom: 10px;
+}
+
+#ytdl-data-grid {
+	display: grid;
+	grid-template-columns: 90px calc(var(--w) - 90px);
+	box-sizing: border-box;
+	padding: 5px;
+	grid-row-gap: 5px;
+}
+
+#ytdl-data-grid > div {
+	font-size: 1.1rem;
+	--ytdl-row-h: 40px;
+	min-height: var(--ytdl-row-h);
+/*	line-height: var(--ytdl-row-h);*/
+}
+
+.ytdl-data-col1{
+	border-radius: 5px 0 0 5px;
+	text-align: center;
+	background: var(--bg-e);
+	box-shadow: inset 0 0 0 2px var(--bg-d);
+
 	display: flex;
-	position: relative;
-	overflow: hidden;
-	box-shadow: inset 0 0 5px #333;
-	margin: 10px 0;
+	align-items: center;
+	justify-content: center;
 }
 
-.ytdl-url-box > * {
-	display:  block;
+.ytdl-data-col2 {
+/*	line-height: calc(var(--ytdl-row-h) - 8px);*/
+	border-radius: 0 5px 5px 0;
+	display: flex;
+	box-sizing: border-box !important;
+
+	background: #ddd;
+	font-weight: 300;
+	padding: 0 10px;
+
+	background: var(--bg-d);
 }
 
-.ytdl-url {
-	width: calc(100% - 40px);
-	background: transparent;
-	outline: none;
-	border:0;
+.audio-qualities, .video-qualities {
+	display: flex;
+	width: 98%;
+/*	overflow-x: scroll;*/
+	flex-wrap: wrap;
 }
 
-.submit-ytdl-btn {
-	border-radius: 5px;
+.ytdl-data-col2[data-type="video"] > .audio-qualities,
+.ytdl-data-col2[data-type="audio"] > .video-qualities
+ {
+	display: none !important;
+}
+
+
+@media only screen and (min-width:1400px) {
+	#ytdl-data{
+		box-shadow: inset 0 0 0 2px var(--bg-c) !important;
+	}
+}
+
+#ytdl-box iframe {
 	border: 0;
-	
+	height: 100%;
+	aspect-ratio: 16/9;
+	background: red;
 }

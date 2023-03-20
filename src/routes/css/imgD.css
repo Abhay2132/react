@@ -1,12 +1,3 @@
-.imgD-box , #ytdl-box{
-	margin: 0;
-	padding: 0;
-	--w: min(98%, 400px);
-	width: var(--w);
-	position: relative;
-	left: calc(50% - var(--w) / 2);
-}
-
 .imgD-form {
 	border-radius: 10px;
 	background: linear-gradient(30deg, yellowgreen, gold);
@@ -21,66 +12,6 @@
 	margin-bottom: 10px;
 }
 
-.input-box {
-	/*	background: red;*/
-	border-radius: 5px;
-	height: 40px;
-	padding: 0;
-	display: flex;
-	position: relative;
-	overflow: hidden;
-	box-shadow: inset 0 0 5px #333;
-	margin: 10px 0;
-}
-
-.input-box>input {
-	border: 0;
-	width: 100%;
-	box-sizing: border-box;
-	padding: 0 10px;
-	background: 0;
-	outline: none;
-	font-size: 1rem;
-}
-
-.imgD-icon {
-	/*	background: green;*/
-	height: 100%;
-	padding: 0 5px;
-}
-
-.imgD-icon:hover {
-	opacity: 1 !important;
-}
-
-.add-url, .submit-btn,
-.imgD-submit {
-	padding: 5px 15px;
-	display: inline-block;
-	border: 0;
-	border-radius: 5px;
-	margin: 10px 10px 0 0;
-	box-shadow: 0 4px 0px rgba(0, 0, 0, 0.6);
-	font-size: 1rem;
-	user-select: none;
-	color: #fff;
-	outline: none;
-}
-
-.add-url {
-	background: rgba(0, 0, 0, 1.0);
-}
-
-.imgD-submit {
-	background: green;
-}
-
-.add-url:active,
-.imgD-submit:active {
-	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.6);
-	transform: translateY(3px);
-}
-
 #urls-box {
 	max-height: 180px;
 	overflow: scroll;
@@ -91,7 +22,7 @@
 	display: block;
 	font-size: 0.8rem;
 	position: relative;
-	top: -8px;
+	top: -3px;
 	left: 20px;
 }
 

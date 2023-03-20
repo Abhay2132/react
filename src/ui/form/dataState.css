@@ -1,0 +1,15 @@
+[data-state="loading"] .data-panel,
+[data-state='loading'] .error-panel,
+[data-state='data'] .error-panel,
+[data-state="data"] .loading-panel,
+[data-state="error"] .loading-panel,
+[data-state="error"] .data-panel,
+[data-state='empty'] .data-panel,
+[data-state='empty'] .loading-panel,
+[data-state='empty'] .error-panel {
+	height: 0 !important;
+	margin: 0 !important;
+	opacity: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}

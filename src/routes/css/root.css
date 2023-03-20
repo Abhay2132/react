@@ -1,3 +1,60 @@
+nav {
+  --nav-H: 50px;
+  padding: 0;
+  overflow: hidden;
+  padding-inline: 0;
+  display: flex;
+  height: var(--nav-H);
+
+  background-color: var(--nav-bg);
+  color: var(--nav-clr);
+
+  box-shadow: 0 3px 5px var(--nav-shd-clr);
+  z-index: 999;
+}
+
+#hmbgr:hover {
+  background-color: var(--hmbgr-hvr);
+}
+
+#hmbgr {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 6px 0 0 0;
+  box-sizing: border-box;
+}
+
+#hmbgr > hr {
+  width: 26px;
+  border: 0;
+  /*  border-top: 2px solid;*/
+  height: 2px;
+  background-color: var(--hmbgr-clr);
+  border-radius: 15px;
+  display: block;
+  transition: 200ms;
+  margin: 6px 7px 0 7px;
+}
+
+.hmbgr-x > hr:nth-child(1) {
+  width: 25px !important;
+  /*  opacity: 0 !important;*/
+}
+
+#hmbgr > hr:first-child {
+  width: 18px;
+}
+
+#logo {
+  padding: 0 20px;
+  line-height: var(--nav-H);
+  font-size: 20px;
+  font-family: sans;
+}
+
+/*  SIDE PANEL CSS  */
 #side-panel {
   background-color: var(--side-panel-bg);
   padding: 0;
@@ -48,7 +105,7 @@ a img {
 
 .side-panel-item > span {
   display: block;
-  /*	background-color: green;*/
+  /*  background-color: green;*/
   line-height: 25px;
   height: 25px;
   margin-left: 10px;
@@ -76,5 +133,31 @@ a img {
   .side-panel-x {
     transform: translateX(-205px);
     opacity: 0;
+  }
+}
+
+
+
+main#outlet {
+  height: calc(var(--innerH) - 55px);
+  background-color: var(--window-bg);
+  color: var(--window-clr);
+  overflow: scroll;
+}
+
+.app {
+  --w: min(100%, 400px);
+  width: var(--w);
+  position: relative;
+  left: calc(50% - var(--w)/2);
+/*  background: rgba(0, 0, 0, 0.2);*/
+  padding: 5px;
+  box-sizing: border-box;
+
+}
+
+@media only screen and (min-width:600px) {
+  #outlet {
+        padding: 5px 0 0 50px;
   }
 }

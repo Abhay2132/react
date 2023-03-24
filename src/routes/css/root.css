@@ -6,11 +6,12 @@ nav {
   display: flex;
   height: var(--nav-H);
 
-  background-color: var(--nav-bg);
+  background-color: var(--bg-e);
+/*  background: rgba(0, 0, 0, 0.1);*/
   color: var(--nav-clr);
 
-  box-shadow: 0 3px 5px var(--nav-shd-clr);
-  z-index: 999;
+/*  box-shadow: 0 3px 5px var(--nav-shd-clr);*/
+  z-index: 99;
 }
 
 #hmbgr:hover {
@@ -57,6 +58,7 @@ nav {
 /*  SIDE PANEL CSS  */
 #side-panel {
   background-color: var(--side-panel-bg);
+  background: var(--bg-e);
   padding: 0;
   margin: 0 !important;
   width: min(50%, 200px);
@@ -66,7 +68,7 @@ nav {
   opacity: 99%;
   transform-origin: 0 0;
   overflow: hidden;
-  box-shadow: 3px 3px 5px var(--nav-shd-clr);
+/*  box-shadow: 3px 3px 5px var(--nav-shd-clr);*/
   position: fixed !important;
 
   z-index: 999 !important;
@@ -139,7 +141,7 @@ a img {
 
 
 main#outlet {
-  height: calc(var(--innerH) - 55px);
+  height: calc(var(--innerH) - 50px);
   background-color: var(--window-bg);
   color: var(--window-clr);
   overflow: scroll;
@@ -158,6 +160,7 @@ main#outlet {
 
 @media only screen and (min-width:600px) {
   #outlet {
-        padding: 5px 0 0 50px;
+        padding: 0 0 0 45px;
+/*        height: calc(var(--inner-H) - 55px ) !important;*/
   }
 }

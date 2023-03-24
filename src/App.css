@@ -1,6 +1,8 @@
 body {
   margin: 0;
   height: var(--innerH);
+/*  background: royalblue;*/ 
+
 }
 
 * {
@@ -67,3 +69,20 @@ body {
   display: flex;
   align-items: center;
 }
+
+.p-s {
+  padding : 5px;
+}
+
+.p {
+  padding: 10px;
+}
+
+.bdr-b {
+  border-bottom: 1px solid;
+}
+
+.m {
+  margin: 10px;
+}
+

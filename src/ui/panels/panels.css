@@ -1,0 +1,133 @@
+.panel{
+	position: fixed;
+	height: var(--innerH);
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+.panel-bg{
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	transition: 400ms;
+}
+
+.panel-body {
+	width: min(100%, 400px);
+	border-radius: 10px;
+	overflow: hidden;
+	box-sizing: border-box;
+	max-height: calc(var(--innerH) - 70px );
+	transform: translateY(25px);
+	margin: 10px;
+
+	transition: 400ms ease;
+}
+
+.panel-topbar {
+	background: #eee;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+	height: 40px;
+}
+
+.panel-title {
+	border:0;
+}
+
+.panel-close-btn {
+	height: 30px;
+	aspect-ratio: 1/1;
+	background: red;
+	border-radius: 5px;
+	position: relative;
+	margin: 5px 5px 0 0 ;
+}
+
+.panel-close-btn:active {
+	transform: scale(0.9);
+}
+
+.panel-close-btn > hr {
+	border: 0;
+	height: 3px;
+	width: 60%;
+	background: #fff;
+	margin: 0;
+	position: absolute;
+	top: calc(50% - 1px);
+	transform: rotate(45deg);
+	border-radius: 5px;
+	left: 20%;
+}
+
+.panel-close-btn > hr:first-child {
+	transform: rotate(135deg);
+}
+
+.panel-body-main{
+	max-height: calc(var(--innerH) - 120px);
+	min-height: 100px;
+	background: white;
+	margin: 0;
+	overflow: scroll;
+	padding-bottom: 45px;
+	box-sizing: border-box;
+}
+
+.panel[panel-state="close"] > .panel-body {
+	transform: translateY(100%);
+	opacity: 0;
+}
+
+.panel[panel-state="open"] > .panel-body {
+	transform: translateY(25px);
+	opacity: 1;
+}
+
+.panel[panel-state="close"] > .panel-bg {
+	opacity: 0;
+}
+
+.panel[panel-state="open"] > .panel-bg {
+	opacity: 1;
+}
+
+.panel-footer {
+	background: var(--bg-d);
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.panel-footer button {
+	display: block;
+	border:0;
+	border-radius: 5px;
+	padding: 8px 10px;
+	font-size: 1rem;
+	margin: 5px;
+	background: var(--bg-f);
+	transition: 100ms;
+}
+
+.panel-ok{
+	background: royalblue !important;
+	color: #fff;
+}
+
+.panel-footer button:active {
+	transform: scale(0.9);
+}
+
+.panel-footer-text{
+	margin: 0 auto;
+}
+

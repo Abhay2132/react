@@ -1,8 +1,11 @@
 #notebook-box, #nb-dashboard {
 	background: 0;
 	width: 100%;
-/*	height: 100%;*/
 	box-sizing: border-box;
+}
+
+#notebook-box {
+	height: 100%;
 }
 
 #nb-dashboard {
@@ -42,20 +45,29 @@
 	position: relative;
 }
 
+.nb-book:active{
+	transform: scale(0.99);
+}
+
 .nb-book-name {
 	background: rgba(255, 255, 255,1);
+	word-break: break-all;
 	text-align: center;
 	padding: 5px;
 	border-radius: 3px;
 	font-size: 1.2rem;
-	
+	min-height: 27px;
 	margin: 14px;
 	margin-bottom: 0;
+	overflow: scroll;
+	max-height: 45px;
+
+	cursor: pointer ;
 }
 
 .nb-book-lastEdit{
 	font-size: 0.7rem;
-/*	background: orange;*/
+	color: rgba(0, 0, 0, 0.5);
 	padding-left: 25px;
 }
 
@@ -66,8 +78,9 @@
 	background: rgba(0, 0, 0, 0.2);
 	position: absolute;
 	bottom: 20px;
-	height: auto;
 	overflow: hidden;
+	transition: 200ms;
+	height: 80px;
 }
 
 .nb-book-desc{
@@ -76,39 +89,161 @@
 	padding: 10px;
 	text-align: center;
 	box-sizing: border-box;
+	transition: 400ms;
+	transition-delay: 300ms;
+	height: 100%;
+	overflow: scroll;
+	word-break: break-all;
 }
 
 .nb-book-options {
 	display: block;
 	position: absolute;
-	width: 130px;
-	background: red;
-	top: 200%;
-	transition: 200ms;
+	width: calc(var(--book-width) - 20px);
+	background: rgba(0, 0, 0, 0.5);
+	left: -200%;
+	top:0;
+	transition: 400ms;
+	transition-delay: 200ms;
+	height: 100%;
 }
 
 .nb-book-option{
-	padding: 5px 10px;
-	background: grey;
+	padding:10px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+.nb-book-option:nth-child(1){
+	border-bottom: 1px solid;
+}
+.nb-book-option:hover{
+	background: #111;
+	color: #eee;
 }
 
 .nb-book-extra[show-options='true']{
-	height: auto;
-	background: red;
+/*	height: 60px;*/
+/*	background: red;*/
 }
+
+.nb-book-extra[show-options='true'] .nb-book-desc{
+	opacity: 0;
+}
+
 
 .nb-book-extra[show-options='true'] .nb-book-options{
-	top: 0;
+	left: 0%;
 }
 
-@media only screen and (max-width:600px) {
+#new-book-btn {
+	background: royalblue;
+	display: flex;
+	height: 50px;
+	width: auto;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 25px;
+	overflow: hidden;
+	user-select: none;
+}
+
+#nb-text {
+/*	background: orange;*/
+	line-height: 50px;
+	padding: 0 10px;
+	font-size: 1.2rem;
+	color: #fff;
+}
+
+#nb-plus{
+	height: 50px;
+	width: 50px;
+/*	background: blue;*/
+}
+
+#nb-plus hr{
+	border: 0;
+	height: 3px;
+	--w : 25px;
+	width: var(--w);
+	border-radius: 5px;
+	background: #fff;
+	position: absolute;
+	top: 24px;
+	margin: 0;
+	left: calc(50% - var(--w)/2);
+}
+
+#nb-plus hr:nth-child(2){
+	transform: rotate(90deg);
+}
+
+#new-book-btn:active{
+	transform: scale(0.95);
+}
+
+@media only screen and (max-width:600px) {/*FOR MOBILES */
 	#nb-dashboard {
 		display: grid;
 		grid-template-columns: auto auto;
-		justify-content: space-around;
+		padding: 20px;
 	}
 
 	.nb-book{
 		aspect-ratio: 10/14;
 	}
+
+	#nb-text {
+		display: none;
+	}
+}
+
+#notebook-box[mode="editor"] #nb-dashboard,
+#notebook-box[mode="dashboard"] #editor
+ {
+	display: none;
+}
+
+#editor {
+/*	background: red;*/
+	height: 100%;
+}
+
+#editor-top-bar{
+	box-sizing: border-box ;
+	height: 40px;
+	display: flex;
+	padding-top: 2.5px;
+}
+
+#editor-book-name {
+/*	background: green;*/
+	line-height: 40px;
+	padding: 0 10px;
+}
+
+#editor-body, #editor-md{
+	height: calc(var(--innerH) - 110px);
+	box-sizing: border-box;
+	border: 0;
+	box-shadow: inset 0 0 5px var(--bg-a);
+	border-radius: 5px;
+	margin: 5px;
+	padding: 10px;
+	width: calc(100% - 10px);
+	outline: none;
+	font-size: 1rem;
+}
+
+#editor-md{
+	position: absolute;
+	top: 40px;
+}
+
+#editor[mode="edit"] #editor-md,
+#editor[mode="md"] #editor-body
+{
+	display:  none;
 }

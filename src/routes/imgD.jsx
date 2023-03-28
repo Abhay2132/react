@@ -3,7 +3,7 @@ import { useRef , useState , useEffect } from "react";
 import {wait,delCopy} from "../utilz.js";
 import {Button, Input} from "../ui/form/views.jsx"
 
-export default function ImgD() {
+export default function () {
 
 	var [urls, setURLs] = useState(['']);
 	var [token, setToken] = useState();

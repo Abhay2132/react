@@ -10,7 +10,7 @@ import ErrorPage from "./error";
 import ImgD from "./routes/imgD"
 import Index from "./routes/index";
 import YTDL from "./routes/ytdl"
-import NoteBook from "./routes/notebook"
+import NoteBook, {getBookID} from "./routes/notebook"
 
 const router = createBrowserRouter([
   {
@@ -31,6 +31,11 @@ const router = createBrowserRouter([
         element: <NoteBook/>
       },
       {
+        path:"notebook/:bookID",
+        loader: getBookID,
+        element : <NoteBook loadid={true} />
+      },
+      {
         path: "",
         element: <Index/>,
       },
@@ -39,10 +44,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
 );
+
 
 function setH() {
   let h = window.innerHeight + "px";

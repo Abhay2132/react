@@ -3,7 +3,7 @@ import "./css/index.css"
 import {useEffect} from "react";
 import {Link} from "react-router-dom";
 
-export default function Index (){
+export default function Component (){
 
 	useEffect(()=> {
 		document.title = "Apps"

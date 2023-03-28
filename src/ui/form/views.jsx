@@ -1,6 +1,7 @@
 import "./buttons.css";
 import "./input.css"
 import { useEffect, useState, useRef } from "react";
+
 export function Input({ value, imp, style = {}, placeholder = "", icon, name, inputHandler, refhook, remove, url, index, mode = "dark" }) {
 	icon = "/icons/" + (icon || "url.svg");
 	let [v, setv] = useState("")
@@ -67,5 +68,45 @@ export function SimpleButton ({onClick, value, children, style ={} }){
 export function Switch ({state, value, style, onClick}){
 	return(
 		<button state={state} onClick={onClick} className ="switch" style={style}>{value}</button>
+	)
+}
+
+export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}){
+	const [data, setData] = useState({
+		disabled: disabled,
+		value: value || ""
+	})
+
+	useEffect(()=>{
+		if(!data.disabled) {
+			ref.current.focus();
+			setTimeout(()=>ref.current.scrollIntoView(true), 100);
+		}
+		if(data.disabled) onEdit(data.value);
+	}, [data.disabled])
+		
+	useEffect(()=>{
+		setData({...data, value})
+	}, [value]);
+
+	let ref = useRef();
+	return (
+		<div className="editable">
+			<label>{label}</label>
+			<div disable={data.disabled.toString()+""} >
+				<input 
+					
+					ref={ref} 
+					onChange={(e)=>setData({...data, value : e.target.value})} 
+					placeholder={placeholder}
+					disabled={data.disabled} 
+					value={data.value} 
+				/>
+				<img 
+					src={data.disabled?"/icons/edit.svg":"/icons/tick.svg"} 
+					onClick={()=>setData({...data, disabled: !data.disabled})} 
+				/>
+			</div>
+		</div>
 	)
 }

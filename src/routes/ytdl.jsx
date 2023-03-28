@@ -7,7 +7,7 @@ import {ErrorPanel, LoadingPanel} from "../ui/form/panels.jsx";
 import {useEffect,useState, useRef} from "react";
 const defaultData = {audio: "", video:"", type: "video", iframeSRC: ""};
 
-export default function (argument) {
+export default function Component (argument) {
 	const host = location.origin || "http://localhost:3000"
 	const [videos, setVideos] = useState(["144p", "240p", "360p", "480p", "720p","1080p"]);
 	const [audios, setAudios] = useState(['48 kbps',"64 kbps","128 kbps","160 kbps"]);

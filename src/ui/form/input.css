@@ -79,3 +79,62 @@
 .label-input > img {
 	background: var(--bg-a);
 }
+
+.editable {
+/*	background: red;*/
+	margin: 5px;
+/*	background: rgba(0,0,0,0.3);*/
+}
+
+.editable > div{
+	display: flex;
+	border-radius: 5px;
+	overflow: hidden;
+/*	background: red;*/
+	box-shadow: inset 0 0 5px var(--bg-a);
+}
+
+.editable > div[disable="false"] {
+	box-shadow: inset 0 0 5px var(--clr-5);
+}
+
+.editable input:focus{
+	box-shadow: inset 0 0 5px royalblue;
+}
+
+.editable > label{
+	display: block;
+	padding: 5px 10px;
+/*	background: red;*/
+}
+
+.editable input {
+	padding: 5px 10px;
+	outline: 0;
+	font-size: 1rem;
+	background: 0;
+	width: 100%;
+	display: block;
+	margin: 0;
+	border:0;
+	height: 40px;
+	box-sizing: border-box;
+}
+
+.editable img {
+	height: 30px;
+	display: block;
+/*	background: green;*/
+	margin: 5px;
+	position: absolute;
+	right: 0;
+	opacity: 0.6;
+}
+
+.editable img:hover {
+	opacity: 1;
+}
+
+.editable img:active {
+	transform: scale(0.9);
+}

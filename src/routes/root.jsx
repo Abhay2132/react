@@ -18,8 +18,14 @@ export default function () {
   }
 
   const items = itemD.map(([href, icon, text, cn], i) => (
-    <A key={i} href={href} icon={icon} text={text} cn={cn} />
+    <A key={i} href={href} icon={icon} text={text} cn={cn}
+      onClick={()=>{
+        setspc("side-panel-x");
+        setcls("hmbgr")
+      }}
+     />
   ));
+
   return ( <>
 
     <nav>
@@ -29,16 +35,16 @@ export default function () {
     < div className={spc} id="side-panel">{items}< /div>
     < main id = "outlet"><Outlet/> < /main> 
 
-    < />);
+    </>);
 }
  
-function A ({ icon, href, text, cn }) {
-  function closeSPanel (){
-    setspc("side-panel-x");
-    setHmbgrCls("hmbgr")
+  function A ({ icon, href, text, cn, onClick }) {
+    function closeSPanel (){
+      setspc("side-panel-x");
+      setHmbgrCls("hmbgr")
   }
   return (
-    <Link to={href} className={cn} onClick={closeSPanel}>
+    <Link to={href} className={cn} onClick={onClick}>
       <img src={"/icons/" + icon + ".svg"} /> <span>{text}</span>
     </Link>
   );

@@ -86,3 +86,6 @@ body {
   margin: 10px;
 }
 
+.bb {
+  box-sizing: border-box;
+}

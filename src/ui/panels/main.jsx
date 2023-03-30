@@ -2,7 +2,7 @@ import {useState, useEffect , useRef} from "react"
 
 import "./panels.css"
 
-export function PopupPanel ({id,close , onClose, title, children, footer, onDone=(()=>{}) , debug}){
+export function PopupPanel ({id,close , onClose, title, children, footer, onDone=(()=>{}) , debug,yes="Done", no="Cancel"}){
 	// console.log({close})
 	const [closePanel, setClosePanel] = useState(close)
 	const [panel, setPanel] = useState("open");
@@ -13,9 +13,14 @@ export function PopupPanel ({id,close , onClose, title, children, footer, onDone
 		debug && console.log({close})
 	},[close])
 
-	const firstRender = useRef()
+	// const firstRender = useRef()
+	const wasOpened = useRef(false)
 	useEffect(()=>{
-		if(!firstRender.current){firstRender.current = true; return;}
+		// if(!firstRender.current){firstRender.current = true; return;}
+		if(!wasOpened.current){
+			wasOpened.current = ! closePanel
+			return;
+		}
 		if(!closePanel) return;
 		onClose && !onClose() && debug && console.log("panel closed")
 	},[closePanel])
@@ -52,8 +57,8 @@ export function PopupPanel ({id,close , onClose, title, children, footer, onDone
 
 			<div className="panel-footer">
 				<div className="panel-footer-text">{footer}</div>
-				<button className="panel-cancel" onClick={triggerClose}>Cancel</button>
-				<button className="panel-ok" onClick={onDone} >Done</button>
+				<button className="panel-cancel" onClick={triggerClose}>{no}</button>
+				<button className="panel-ok" onClick={onDone} >{yes}</button>
 			</div>
 			</div>
 		</div>

@@ -10,7 +10,7 @@ import ErrorPage from "./error";
 import ImgD from "./routes/imgD"
 import Index from "./routes/index";
 import YTDL from "./routes/ytdl"
-import NoteBook, {getBookID} from "./routes/notebook"
+import NoteBook from "./routes/notebook/notebook"
 
 const router = createBrowserRouter([
   {
@@ -31,9 +31,9 @@ const router = createBrowserRouter([
         element: <NoteBook/>
       },
       {
-        path:"notebook/:bookID",
-        loader: getBookID,
-        element : <NoteBook loadid={true} />
+        path:"notebook/*",
+        // loader: getBookID,
+        element : <NoteBook isChild={true} />
       },
       {
         path: "",

@@ -1,6 +1,6 @@
 import "./css/index.css"
-
-import {useEffect} from "react";
+import { PopupPanel } from "../ui/panels/main"
+import {useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 
 export default function Component (){
@@ -9,7 +9,9 @@ export default function Component (){
 		document.title = "Apps"
 		document.querySelector("#logo").textContent = "Apps"
 	},[])
-
+	
+	const [data , setData] = useState(true)
+	
 	return(<div id="index" className="app">
 		<Link to={`/imgD`} className="index-link"><IndexItem name="ImgD" /></Link>
 		<Link to={`/ytdl`} className="index-link"><IndexItem name="YTDL" /></Link>

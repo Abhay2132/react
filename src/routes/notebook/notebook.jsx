@@ -115,7 +115,7 @@ export default function Component ({loadid}) {
 					<div id="nb-text"> New Book </div>
 				</div>
 
-				<NBPanel  close={!data.openNBPanel} 
+				<NBPanel 
 					close={!data.openNBPanel}
 					onClose={()=>{
 						if(data.openNBPanel) history.back();

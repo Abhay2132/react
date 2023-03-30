@@ -1,7 +1,6 @@
 import "../ui/themes/global.css"
 import "../App.css";
 import "./css/root.css";
-
 import { Outlet , Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -47,6 +46,8 @@ export default function () {
     <Link to={href} className={cn} onClick={onClick}>
       <img src={"/icons/" + icon + ".svg"} /> <span>{text}</span>
     </Link>
+    
+    
   );
 }
 

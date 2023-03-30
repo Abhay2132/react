@@ -3,62 +3,51 @@ import {useState, useEffect , useRef} from "react"
 import "./panels.css"
 
 export function PopupPanel ({id,close , onClose, title, children, footer, onDone=(()=>{}) , debug,yes="Done", no="Cancel"}){
-	// console.log({close})
-	const [closePanel, setClosePanel] = useState(close)
-	const [panel, setPanel] = useState("open");
-	const lastTO = useRef();
-
+	const [data, setData] = useState({id, close : close, animate : "close", display : "none"})
+	//console.log(data.close, close)
 	useEffect(()=>{
-		animatePanel(close,()=> setClosePanel(close));
-		debug && console.log({close})
-	},[close])
-
-	// const firstRender = useRef()
+		let redFlag = false;
+		//console.log("useEffect : ", data.close, "\nredFlag :", redFlag);
+		setData({...data , animate : "close" , display : "flex" });
+		if(!data.close) setTimeout(()=>{
+			if(redFlag || data.close) return; 
+			setData({animate: "open"});
+		}, 0);
+		setTimeout(()=>{
+			if(redFlag || ! data.close ) return;
+			//console.log({data});
+			setData({...data, display: "none"});
+		}, 400);
+		
+		if(wasOpened.current && data.close) onClose && onClose();
+		if(!wasOpened.current) wasOpened.current = ! data.close
+		return () => { redFlag = true }
+	},[data.close])
+	
+	useEffect(() =>  setData({...data, close}), [close]);
 	const wasOpened = useRef(false)
-	useEffect(()=>{
-		// if(!firstRender.current){firstRender.current = true; return;}
-		if(!wasOpened.current){
-			wasOpened.current = ! closePanel
-			return;
-		}
-		if(!closePanel) return;
-		onClose && !onClose() && debug && console.log("panel closed")
-	},[closePanel])
-
-
-	function animatePanel(c, cb){
-		clearTimeout(lastTO.current);
-		const animationDur = 400;
-		if(c){
-			setPanel("close")
-			lastTO.current = setTimeout(cb, animationDur)
-		} else {
-			lastTO.current = setTimeout(()=> setPanel("open"), 10)
-			cb();
-		}
-	}
-	const triggerClose = ()=>animatePanel(1, ()=>setClosePanel(true));
+	const triggerClose = ()=>setData({ ...data, close : true})
 
 	return (
-		<div id={id} className="panel middle" panel-state={panel} style={{display: closePanel?"none":"flex"}}>
-			<div className="panel-bg" 
+		<div id={id} className="popup-panel middle" panel-state={data.animate} style={{display : data.display}}>
+			<div className="popup-panel-bg" 
 				onClick={triggerClose}
-			></div>
-			<div className="panel-body">
-				<div className="panel-topbar">
-					<div className="panel-title">{title}</div>
-					<div className="panel-close-btn"
+			></div> 
+			<div className="popup-panel-body" >
+				<div className="popup-panel-topbar">
+					<div className="popup-panel-title">{title}</div>
+					<div className="popup-panel-close-btn"
 						onClick={triggerClose}
 					><hr/><hr/></div>
 				</div>
-				<div className="panel-body-main">
+				<div className="popup-panel-body-main">
 					{children}
 				</div>
 
-			<div className="panel-footer">
-				<div className="panel-footer-text">{footer}</div>
-				<button className="panel-cancel" onClick={triggerClose}>{no}</button>
-				<button className="panel-ok" onClick={onDone} >{yes}</button>
+			<div className="popup-panel-footer">
+				<div className="popup-panel-footer-text">{footer}</div>
+				<button className="popup-panel-cancel" onClick={triggerClose}>{no}</button>
+				<button className="popup-panel-ok" onClick={onDone} >{yes}</button>
 			</div>
 			</div>
 		</div>

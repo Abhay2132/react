@@ -8,7 +8,7 @@ export default function Editor({ bookID, onBack, update }) {
 	const defData = { text: "", book: { text: "" }, md: false , savePanel : false }
 	const [data, setData] = useState(defData);
 	useEffect(() => {
-		console.log("Editor useEffect")
+		//console.log("Editor useEffect")
 		let book = getBook(bookID);
 		if (!book) return;
 		setData({ ...defData, book, text: book.text || "", md: book.text.trim().length > 0 });
@@ -35,21 +35,21 @@ export default function Editor({ bookID, onBack, update }) {
 	}
 
 	function back (){
-		console.log("back : edited %s , savePanel : %s",edited.current, data.savePanel)
+		//console.log("back : edited %s , savePanel : %s",edited.current, data.savePanel)
 		if(!edited.current) return onBack();
 		setData({...data, savePanel : true})
 		goBack.current = true
 	}
 
 	function onClose (){
-		console.log("onClose : back %s", goBack.current)
+		//console.log("onClose : back %s", goBack.current)
 		if(goBack.current) onBack();
 		setData({...data, savePanel: false})
 		goBack.current = false
 	}
 
 	const setMD = (content, f) => { 
-		if(!edited.current && !f) return// console.log("not parsed")
+		if(!edited.current && !f) return// //console.log("not parsed")
 		md.current.innerHTML = marked.parse(content.replace(/^[\u200B\u200C\u200D\u200E\u200F\uFEFF]/, "")); 
 	}
 

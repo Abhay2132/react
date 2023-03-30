@@ -1,4 +1,4 @@
-.panel{
+.popup-panel{
 	position: fixed;
 	height: var(--innerH);
 	width: 100%;
@@ -7,7 +7,7 @@
 	z-index: 2;
 }
 
-.panel-bg{
+.popup-panel-bg{
 	height: 100%;
 	background: rgba(0,0,0,0.5);
 	width: 100%;
@@ -17,7 +17,7 @@
 	transition: 400ms;
 }
 
-.panel-body {
+.popup-panel-body {
 	width: min(100%, 400px);
 	border-radius: 10px;
 	overflow: hidden;
@@ -29,19 +29,21 @@
 	transition: 400ms ease;
 }
 
-.panel-topbar {
+.popup-panel-topbar {
 	background: #eee;
 	display: flex;
 	justify-content: space-between;
 	box-sizing: border-box;
 	height: 40px;
 }
-
-.panel-title {
+ 
+.popup-panel-title {
 	border:0;
+	padding: 0 10px;
+	line-height: 40px;
 }
 
-.panel-close-btn {
+.popup-panel-close-btn {
 	height: 30px;
 	aspect-ratio: 1/1;
 	background: red;
@@ -50,11 +52,11 @@
 	margin: 5px 5px 0 0 ;
 }
 
-.panel-close-btn:active {
+.popup-panel-close-btn:active {
 	transform: scale(0.9);
 }
 
-.panel-close-btn > hr {
+.popup-panel-close-btn > hr {
 	border: 0;
 	height: 3px;
 	width: 60%;
@@ -67,11 +69,11 @@
 	left: 20%;
 }
 
-.panel-close-btn > hr:first-child {
+.popup-panel-close-btn > hr:first-child {
 	transform: rotate(135deg);
 }
 
-.panel-body-main{
+.popup-panel-body-main{
 	max-height: calc(var(--innerH) - 120px);
 	min-height: 100px;
 	background: white;
@@ -81,25 +83,25 @@
 	box-sizing: border-box;
 }
 
-.panel[panel-state="close"] > .panel-body {
+.popup-panel[panel-state="close"] > .popup-panel-body {
 	transform: translateY(100%);
 	opacity: 0;
 }
 
-.panel[panel-state="open"] > .panel-body {
+.popup-panel[panel-state="open"] > .popup-panel-body {
 	transform: translateY(25px);
 	opacity: 1;
 }
 
-.panel[panel-state="close"] > .panel-bg {
+.popup-panel[panel-state="close"] > .popup-panel-bg {
 	opacity: 0;
 }
 
-.panel[panel-state="open"] > .panel-bg {
+.popup-panel[panel-state="open"] > .popup-panel-bg {
 	opacity: 1;
 }
 
-.panel-footer {
+.popup-panel-footer {
 	background: var(--bg-d);
 	display: flex;
 	position: absolute;
@@ -107,7 +109,7 @@
 	width: 100%;
 }
 
-.panel-footer button {
+.popup-panel-footer button {
 	display: block;
 	border:0;
 	border-radius: 5px;
@@ -118,16 +120,15 @@
 	transition: 100ms;
 }
 
-.panel-ok{
+.popup-panel-ok{
 	background: royalblue !important;
 	color: #fff;
 }
 
-.panel-footer button:active {
+.popup-panel-footer button:active {
 	transform: scale(0.9);
 }
 
-.panel-footer-text{
+.popup-panel-footer-text{
 	margin: 0 auto;
 }
-

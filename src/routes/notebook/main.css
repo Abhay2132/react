@@ -160,7 +160,6 @@
 #nb-plus{
 	height: 50px;
 	width: 50px;
-/*	background: blue;*/
 }
 
 #nb-plus hr{
@@ -169,7 +168,7 @@
 	--w : 25px;
 	width: var(--w);
 	border-radius: 5px;
-	background: #fff;
+	background: #ccc !important;
 	position: absolute;
 	top: 24px;
 	margin: 0;
@@ -277,4 +276,17 @@
 /* Handle on hover */
 #editor-md::-webkit-scrollbar-thumb:hover {
   background: #555 !important;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+	#new-book-btn {
+		filter: brightness(0.6);
+	}
+
+	.nb-book .nb-book-name{
+		background: royalblue;
+		color: #fff;
+	}
 }

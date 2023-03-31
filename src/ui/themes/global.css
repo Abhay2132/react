@@ -43,6 +43,8 @@
   --clr-3: #333;
   --clr-4: #444;
   --clr-5: #555;
+
+  --invert-1: 0;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,6 +76,9 @@
   --clr-3: #ccc;
   --clr-4: #bbb;
   --clr-5: #aaa;
+
+  /* invert */
+    --invert-1: 1;
   
   }
 }

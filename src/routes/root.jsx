@@ -2,57 +2,64 @@ import "../ui/themes/global.css"
 import "../App.css";
 import "./css/root.css";
 import { Outlet , Link } from "react-router-dom";
-import { useState } from "react";
+import { useState , useRef , memo} from "react";
+
+import home from "/icons/home.svg"; 
+import about from "/icons/about.svg";
+import settings from "/icons/setting.svg";
+
+import User from "./user/user"
 
 export default function () {
-  const [cls, setcls] = useState("");
-  const [spc, setspc] = useState("side-panel-x");
+  let ai =0;
+  itemD.forEach((item,i)=> {if(location.pathname.startsWith(item[0])) ai = i})
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(ai);
 
-  function clickHandle(e) {
-    const isClosed = cls != "hmbgr-x";
-    const newcls = isClosed ? "hmbgr-x" : "hmbgr";
-    const newspc = isClosed ? "" : "side-panel-x";
-    setcls(newcls);
-    setspc(newspc);
-  }
+  const e = useRef((e)=>{
+    setOpen(false)
+    let {target} = e
+    if(target.tagName.toLowerCase() == "img") target = target.parentNode;
+    setActive(target.getAttribute("data-index"));
+  }) ;
 
   const items = itemD.map(([href, icon, text, cn], i) => (
-    <A key={i} href={href} icon={icon} text={text} cn={cn}
-      onClick={()=>{
-        setspc("side-panel-x");
-        setcls("hmbgr")
-      }}
-     />
-  )); 
+        <A 
+          key={i} 
+          href={href} 
+          icon={icon} 
+          text={text} 
+          cn={cn} 
+          onClick={e.current} 
+          active={active == i}
+          index={i}
+        />
+    )
+  ); 
 
   return ( <>
 
     <nav>
-      <div className={cls} onClick={clickHandle} id="hmbgr"><hr /><hr /><hr /></div>
+      <div className={open  ? "hmbgr-x" : "hmbgr"} onClick={()=> setOpen(!open) } id="hmbgr"><hr /><hr /><hr /></div>
       <div id="logo">Apps</div>
+      <User/>
     </nav>
-    < div className={spc} id="side-panel">{items}< /div>
+    < div className={open ? "side-panel" : "side-panel-x"} id="side-panel">{items}< /div>
     < main id = "outlet"><Outlet/> < /main> 
 
     </>);
 }
  
-  function A ({ icon, href, text, cn, onClick }) {
-    function closeSPanel (){
-      setspc("side-panel-x");
-      setHmbgrCls("hmbgr")
-  }
+ const A = memo(function ({ icon, href, text, cn, onClick, active, index }) {
   return (
-    <Link to={href} className={cn} onClick={onClick}>
-      <img src={"/icons/" + icon + ".svg"} /> <span>{text}</span>
-    </Link>
-    
-    
-  );
-}
+    <Link to={href} className={cn} onClick={onClick} active={""+active} data-index={index} >
+      <img src={icon} /> <span>{text}</span>
+    </Link>    
+)
+});
 
 const itemD = [
-    ["/", "home", "Home", "spi side-panel-item"],
-    ["/", "contact1", "Contact Me", "side-panel-item"],
-    ["/", "about", "About", "side-panel-item"],
+    ["/", home, "Home", "side-panel-item"],
+    ["/about", about, "About", "side-panel-item"],
+    ["/settings", settings, "Settings", "side-panel-item"]
   ];

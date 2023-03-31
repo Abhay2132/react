@@ -18,13 +18,16 @@ export function Input({ value, imp, style = {}, placeholder = "", icon, name, in
 	refhook = refhook || useRef();
 
 	function removeHandler() {
-		remove && remove(index, input.current.value.length < 1)
+		remove && remove(index, v.length < 1)
 		setv("")
 	};
 	return (<div style={style} className="iconed-input-box" mode={mode}>
 				<img src={icon} height='30px' width='30px' className="input-icon" alt="url"/>
-				<input important={imp ? "true" :"false"} ref={refhook} type="text" data-index={index} name={name} value={v} onInput={handleInput} placeholder={placeholder} />
-				<img src="/icons/delete.svg"  height='30px' width='30px' className="input-icon" alt="delete" style={{opacity:0.2}} onClick={removeHandler} />
+				<input important={imp ? "true" :"false"} ref={refhook} type="text" data-index={index} name={name} 
+				value={v} onInput={handleInput} placeholder={placeholder} />
+				<img src="/icons/delete.svg"  height='30px' width='30px' className="input-icon" alt="delete" 
+				style={{opacity:0.2}} 
+				onClick={removeHandler} />
 		</div>)
 }
 

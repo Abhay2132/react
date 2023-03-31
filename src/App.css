@@ -1,8 +1,7 @@
 body {
   margin: 0;
   height: var(--innerH);
-/*  background: royalblue;*/ 
-
+  --nav-H: 50px;
 }
 
 * {

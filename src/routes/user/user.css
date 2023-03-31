@@ -1,0 +1,87 @@
+#user {
+	height: 40px;
+	width:  40px;
+	background: red;
+	margin: 5px 8px 0 auto;
+	border-radius: 5px;
+	background: var(--bg-e);
+}
+
+#user[mode="options"] #user-options {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#user[mode="normal"] #user-options {
+	opacity: 0;
+	transform: translateY(50px);
+}
+
+#user > img:active {
+	transform: scale(0.9);
+}
+
+#user > img {
+	height: 40px;
+	aspect-ratio:  1/1;
+	border-radius: 50%;
+	filter: invert(var(--invert-1));
+	transition: 100ms;
+}
+
+#user-options {
+	--bg-clr-hehe: #222;
+	background: var(--bg-clr-hehe);
+	width: 150px;
+	position: absolute;
+	right: 0;
+	border-radius: 8px;
+	top : 48px;
+	transition: 400ms;
+/*	overflow: hidden;*/
+}
+
+#user-options:before{
+	content: "";
+	position: absolute;
+	height: 20px;
+	aspect-ratio: 1/1;
+/*	background: red;*/
+	top: -20px;
+	right: 10px;
+	border: 10px solid transparent;
+	border-bottom-color: var(--bg-clr-hehe);
+	box-sizing: border-box;
+}
+
+.user-option {
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	user-select: none;
+	font-size: 1rem;
+	padding: 0 40px;
+}
+
+.user-option:hover {
+	background: royalblue;
+/*	color: #333;*/
+	transition: 100ms;
+}
+
+.user-option:active {
+	font-size: 0.9rem;
+}
+
+.user-option  > img {
+	height: 25px;
+	aspect-ratio: 1/1;
+	position: absolute;
+	margin: calc(15px / 2) 5px;
+	filter:  contrast(0) brightness(10);
+	left: 0;
+}
+
+.user-option:hover > img{
+/*	filter: contrast(100%) brightness(1.0);*/
+}

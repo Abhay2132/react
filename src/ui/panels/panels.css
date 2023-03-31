@@ -118,11 +118,13 @@
 	margin: 5px;
 	background: var(--bg-f);
 	transition: 100ms;
+
+	color: var(--clr-0);
 }
 
 .popup-panel-ok{
 	background: royalblue !important;
-	color: #fff;
+	color: #fff !important;
 }
 
 .popup-panel-footer button:active {
@@ -131,4 +133,41 @@
 
 .popup-panel-footer-text{
 	margin: 0 auto;
+}
+
+.full-loading-panel {
+	background: #eef;
+	border-radius: 10px;
+	margin: 5px;
+	flex-direction: column;
+	padding: 50px;
+	grid-gap: 10px;
+	box-sizing: border-box;
+	transition: 400ms;
+	overflow: hidden;
+	text-align: center;
+}
+
+.full-loading-spinner {
+	display: inline-block;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: 10px solid rgba(0, 0, 0, 0.1);
+	border-top-color: royalblue;
+	animation: spin 1200ms linear 0s infinite;
+	box-sizing: border-box;
+	margin: 20px;
+}
+
+.full-loader {
+	position: fixed;
+	top: var(--nav-H);
+	display: flex;
+	justify-content: center;
+	align-items: center ;
+
+	height: calc(var(--innerH) - var(--nav-H));
+	position: fixed;
+	top: var(--nav-H);
 }

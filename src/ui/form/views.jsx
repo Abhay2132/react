@@ -2,8 +2,12 @@ import "./buttons.css";
 import "./input.css"
 import { useEffect, useState, useRef } from "react";
 
-export function Input({ value, imp, style = {}, placeholder = "", icon, name, inputHandler, refhook, remove, url, index, mode = "dark" }) {
-	icon = "/icons/" + (icon || "url.svg");
+import delIcon from "../../assets/icons/delete.svg"
+import url1 from "../../assets/icons/url.svg"
+import edit from "../../assets/icons/edit.svg"
+import tick from"../../assets/icons/tick.svg";
+
+export function Input({ value, imp, style = {}, placeholder = "", icon=url1, name, inputHandler, refhook, remove, url, index, mode = "dark" }) {
 	let [v, setv] = useState("")
 
 	function handleInput(e) {
@@ -25,7 +29,7 @@ export function Input({ value, imp, style = {}, placeholder = "", icon, name, in
 				<img src={icon} height='30px' width='30px' className="input-icon" alt="url"/>
 				<input important={imp ? "true" :"false"} ref={refhook} type="text" data-index={index} name={name} 
 				value={v} onInput={handleInput} placeholder={placeholder} />
-				<img src="/icons/delete.svg"  height='30px' width='30px' className="input-icon" alt="delete" 
+				<img src={delIcon} height='30px' width='30px' className="input-icon" alt="delete" 
 				style={{opacity:0.2}} 
 				onClick={removeHandler} />
 		</div>)
@@ -98,7 +102,6 @@ export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}
 			<label>{label}</label>
 			<div disable={data.disabled.toString()+""} >
 				<input 
-					
 					ref={ref} 
 					onChange={(e)=>setData({...data, value : e.target.value})} 
 					placeholder={placeholder}
@@ -106,7 +109,7 @@ export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}
 					value={data.value} 
 				/>
 				<img 
-					src={data.disabled?"/icons/edit.svg":"/icons/tick.svg"} 
+					src={data.disabled?edit: tick} 
 					onClick={()=>setData({...data, disabled: !data.disabled})} 
 				/>
 			</div>

@@ -1,9 +1,9 @@
 import "./user.css";
 import {useState} from "react"
 
-import user from "/icons/user.svg"
-import profile from"/icons/profile.svg";
-import logout from "/icons/logout.svg"
+import user from "../../assets/icons/user.svg"
+import profile from"../../assets/icons/profile.svg";
+import logout from "../../assets/icons/logout.svg"
 
 export default function User (){
 	const [data, setData] = useState({open : false});

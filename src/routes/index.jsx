@@ -1,5 +1,4 @@
 import "./css/index.css"
-import { FullLoader} from "../ui/panels/main"
 import {useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 
@@ -16,7 +15,6 @@ export default function Component (){
 		<Link to={`/imgD`} className="index-link"><IndexItem name="ImgD" /></Link>
 		<Link to={`/ytdl`} className="index-link"><IndexItem name="YTDL" /></Link>
 		<Link to={`/notebook`} className="index-link"><IndexItem name="NoteBook" /></Link>
-		{/*<FullLoader/>*/}
 	</div>)
 }
 

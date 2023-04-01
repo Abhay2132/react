@@ -1,0 +1,66 @@
+
+.popup-panel-bg{
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	width: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	transition: 400ms;
+}
+
+.full-loading-panel {
+	background: #eef;
+	border-radius: 20px;
+	padding: 50px;
+	box-sizing: border-box;
+	transition: 400ms;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	font-family: sans;
+}
+
+.full-loading-spinner {
+	display: inline-block;
+	height: 70px;
+	width: 70px;
+	border-radius: 50%;
+	border: 10px solid rgba(0, 0, 0, 0.1);
+	border-top-color: royalblue;
+	animation: spin 1200ms linear 0s infinite;
+	box-sizing: border-box;
+	margin: 20px;
+}
+
+.full-loader {
+	position: fixed;
+	top: var(--nav-H);
+	display: flex;
+	justify-content: center;
+	align-items: center ;
+	width: 100%;
+	height: calc(var(--innerH, 100vh) - var(--nav-H, 50px));
+	position: fixed;
+	top: var(--nav-H);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+[animate="blinking"] {
+	animation: blink 600ms linear infinite alternate;
+}
+
+@keyframes blink {
+	from{color: rgba(0, 0, 0, 0);}
+	to{color: rgba(0, 0, 0, 1);}
+}

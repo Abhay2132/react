@@ -198,12 +198,3 @@
 	font-weight: 400;
 	margin: 5px;
 }
-
-[animate="blinking"] {
-	animation: blink 600ms linear infinite alternate;
-}
-
-@keyframes blink {
-	from{color: rgba(0, 0, 0, 0);}
-	to{color: rgba(0, 0, 0, 1);}
-}

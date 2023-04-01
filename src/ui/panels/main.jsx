@@ -53,15 +53,3 @@ export function PopupPanel ({id,close , onClose, title, children, footer, onDone
 		</div>
 	)
 }
-
-export function FullLoader (){
-	return(
-		<div className="full-loader">
-		<div className="popup-panel-bg"></div>
-		<div className="full-loading-panel">
-			<div className="full-loading-spinner"></div>
-			<center animate="blinking"> LOADING </center>
-		</div>
-		</div>
-	)
-}

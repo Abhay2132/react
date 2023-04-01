@@ -70,7 +70,7 @@
 }
 
 .user-option:active {
-	font-size: 0.9rem;
+	padding-left: 50px;
 }
 
 .user-option  > img {

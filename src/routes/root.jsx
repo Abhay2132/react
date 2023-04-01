@@ -4,9 +4,9 @@ import "./css/root.css";
 import { Outlet , Link } from "react-router-dom";
 import { useState , useRef , memo} from "react";
 
-import home from "/icons/home.svg"; 
-import about from "/icons/about.svg";
-import settings from "/icons/setting.svg";
+import home from "../assets/icons/home.svg"; 
+import about from "../assets/icons/about.svg";
+import settings from "../assets/icons/setting.svg";
 
 import User from "./user/user"
 
@@ -15,11 +15,11 @@ export default function () {
   itemD.forEach((item,i)=> {if(location.pathname.startsWith(item[0])) ai = i})
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(ai);
-
+ 
   const e = useRef((e)=>{
     setOpen(false)
     let {target} = e
-    if(target.tagName.toLowerCase() == "img") target = target.parentNode;
+    if(target.tagName.toLowerCase() !== "a") target = target.parentNode;
     setActive(target.getAttribute("data-index"));
   }) ;
 

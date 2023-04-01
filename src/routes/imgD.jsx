@@ -3,6 +3,9 @@ import { useRef , useState , useEffect } from "react";
 import {wait,delCopy} from "../utilz.js";
 import {Button, Input} from "../ui/form/views.jsx"
 
+import imgIcon from "../assets/icons/img.svg";
+import pageIcon from "../assets/icons/page.svg";
+
 export default function () {
 
 	var [urls, setURLs] = useState(['']);
@@ -114,34 +117,6 @@ export default function () {
 	)
 }
 
-function InputBox ({index, inputHandler, remove, url}){
-	let [u, setu] = useState("")
-	function handleInput (e){
-		inputHandler(e.target.value, index);
-		setu(e.target.value)
-	}
-
-	// console.log("inputBOX_url :", url)
-	useEffect(()=>{
-		// console.log("useEffect in InputBox :", url)
-		setu(url);
-	},[url]);
-
-	let input = useRef();
-	function removeHandler (){
-		remove(index, input.current.value.length < 1)
-		setu("")
-	};
-
-	return (
-		<div className="input-box">
-				<img src="/icons/url.svg" height='30px' width='30px' className="imgD-icon" alt="url"/>
-				<input ref={input} type="text" name={index} value={u} onInput={handleInput} placeholder="Enter Website URL" />
-				<img src="/icons/delete.svg"  height='30px' width='30px' className="imgD-icon" alt="delete" style={{opacity:0.2}} onClick={removeHandler} />
-		</div>
-		)
-}
-
 function DataPanel ({data}){
 	function startDL(token){
 		window.open("/imgD/dl?token="+token);
@@ -150,8 +125,8 @@ function DataPanel ({data}){
 	return (
 		<div id="result-panel">
 			<div id='ir-head'>Result</div>
-			<div className="ir-info"><img src="/icons/img.svg" height="30px"/><span> {data.imgs} Images</span></div>
-			<div className="ir-info"><img src="/icons/page.svg" height="30px"/><span> {data.pages} Webpages</span></div>
+			<div className="ir-info"><img src={imgIcon} height="30px"/><span> {data.imgs} Images</span></div>
+			<div className="ir-info"><img src={pageIcon} height="30px"/><span> {data.pages} Webpages</span></div>
 			<center><button onClick={()=> startDL(data.token)} >Download Zip</button></center>
 		</div>
 	)

@@ -10,7 +10,7 @@ export default function (){
     }, [])
     return (
         <div id="login" className="mobile-box">
-            <h3 id="login-title">Enter Your Details </h3>
+            <h3 id="login-title">Enter Your Account Email </h3>
             <div id="login-form">
                 <Input1 label="Email" />
                 <Button text="Send Link" style={{background:"royalblue"}} />

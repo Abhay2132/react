@@ -21,7 +21,7 @@ export default function () {
     let {target} = e
     if(target.tagName.toLowerCase() !== "a") target = target.parentNode;
     setActive(target.getAttribute("data-index"));
-  }) ;
+  });
 
   const items = itemD.map(([href, icon, text, cn], i) => (
         <A 
@@ -36,16 +36,17 @@ export default function () {
         />
     )
   ); 
-
+  
   return ( <>
-
     <nav>
       <div className={open  ? "hmbgr-x" : "hmbgr"} onClick={()=> setOpen(!open) } id="hmbgr"><hr /><hr /><hr /></div>
       <div id="logo">Apps</div>
       <User/>
     </nav>
-    < div className={open ? "side-panel" : "side-panel-x"} id="side-panel">{items}< /div>
-    < main id = "outlet"><Outlet/> < /main> 
+    < div className={open ? "side-panel" : "side-panel-x"} id="side-panel">
+      {items}
+    </div>
+    < main id = "outlet"><Outlet/> </main> 
 
     </>);
 }
@@ -63,3 +64,11 @@ const itemD = [
     ["/about", about, "About", "side-panel-item"],
     ["/settings", settings, "Settings", "side-panel-item"]
   ];
+
+  const aa = (url) => location.pathname.startsWith(url)
+  function  isLogin (params) {
+    // console.log(aa("/login"), aa("/signup"))
+    if(aa("/login")) return true;
+    if(aa("/signup")) return true;
+    return false;
+  }

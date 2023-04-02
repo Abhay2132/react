@@ -35,9 +35,9 @@ export function Input({ value, imp, style = {}, placeholder = "", icon=url1, nam
 		</div>)
 }
 
-export function Button({ children,color, bg, onClick=(()=>{}), text = "Button", padding, size,cursor, style}) {
+export function Button({value, children,color, bg, onClick=(()=>{}), text = "Button", padding, size,cursor, style}) {
 	return (<button onClick={onClick} className="submit-button" style={style || {padding: padding, fontSize : size,color : color, background : bg, cursor:cursor}}>
-			{children || text}
+			{children || text || value}
 		</button>)
 }
 
@@ -89,7 +89,7 @@ export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}
 			ref.current.focus();
 			setTimeout(()=>ref.current.scrollIntoView(true), 100);
 		}
-		if(data.disabled) onEdit(data.value);
+		if(data.disabled) onEdit && onEdit(data.value);
 	}, [data.disabled])
 		
 	useEffect(()=>{
@@ -100,7 +100,7 @@ export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}
 	return (
 		<div className="editable">
 			<label>{label}</label>
-			<div disable={data.disabled.toString()+""} >
+			<div disable={data?.disabled?.toString()+""} >
 				<input 
 					ref={ref} 
 					onChange={(e)=>setData({...data, value : e.target.value})} 
@@ -112,6 +112,30 @@ export function Editable ({label, value, placeholder, icon, onEdit, disabled,id}
 					src={data.disabled?edit: tick} 
 					onClick={()=>setData({...data, disabled: !data.disabled})} 
 				/>
+			</div>
+		</div>
+	)
+}
+
+export function Input1 ({type="text",label, onInput, placeholder, value, onClear}){
+	const [data, setData] = useState(value)
+	function input (e){
+		setData(e.target.value);
+		onInput && onInput(e.target.value);
+	}
+
+	function clear (){
+		setData("");
+		onInput && onInput("")
+		onClear && onClear();
+	}
+
+	return (
+		<div className="input1">
+			<label>{label}</label>
+			<div>
+				<input value={data} placeholder={placeholder} onInput={input} type={type} />
+				<img src={delIcon} onClick={clear} />
 			</div>
 		</div>
 	)

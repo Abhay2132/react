@@ -15,6 +15,9 @@ const YTDL = lazy(()=>import("./routes/ytdl"))
 const NoteBook = lazy(()=>import("./routes/notebook/notebook"))
 const Settings = lazy(()=>import("./routes/settings/settings"))
 const About = lazy(()=> import("./routes/about"))
+const Login = lazy(()=>import("./routes/user/login"));
+const SignUp = lazy(()=>import("./routes/user/signup"));
+const Reset = lazy(()=> import("./routes/user/reset"));
 
 const element = (Component) => {
   return (
@@ -60,6 +63,18 @@ const router = createBrowserRouter([
       {
         path: "about",
         element : element(About)
+      },
+      {
+        path: "login",
+        element: element(Login)
+      },
+      {
+        path: "signup",
+        element: element(SignUp)
+      },
+      {
+        path: "reset",
+        element: element(Reset)
       }
     ],
   },

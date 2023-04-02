@@ -1,29 +1,19 @@
 #user {
 	height: 40px;
-	width:  40px;
+	width: 40px;
 	background: red;
 	margin: 5px 8px 0 auto;
 	border-radius: 5px;
 	background: var(--bg-e);
 }
 
-#user[mode="options"] #user-options {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-#user[mode="normal"] #user-options {
-	opacity: 0;
-	transform: translateY(50px);
-}
-
-#user > img:active {
+#user>img:active {
 	transform: scale(0.9);
 }
 
-#user > img {
+#user>img {
 	height: 40px;
-	aspect-ratio:  1/1;
+	aspect-ratio: 1/1;
 	border-radius: 50%;
 	filter: invert(var(--invert-1));
 	transition: 100ms;
@@ -36,17 +26,17 @@
 	position: absolute;
 	right: 0;
 	border-radius: 8px;
-	top : 48px;
+	top: 48px;
 	transition: 400ms;
-/*	overflow: hidden;*/
+	transform-origin: 130px 0%;
 }
 
-#user-options:before{
+#user-options:before {
 	content: "";
 	position: absolute;
 	height: 20px;
 	aspect-ratio: 1/1;
-/*	background: red;*/
+	/*	background: red;*/
 	top: -20px;
 	right: 10px;
 	border: 10px solid transparent;
@@ -54,34 +44,81 @@
 	box-sizing: border-box;
 }
 
-.user-option {
+.user-option-item {
 	height: 40px;
 	line-height: 40px;
+	transition: 100ms;
 	color: #fff;
 	user-select: none;
 	font-size: 1rem;
 	padding: 0 40px;
 }
 
-.user-option:hover {
+.user-option-item:hover {
 	background: royalblue;
-/*	color: #333;*/
-	transition: 100ms;
+	/*	color: #333;*/
 }
 
-.user-option:active {
+.user-option-item:active {
 	padding-left: 50px;
 }
 
-.user-option  > img {
+.user-option-item>img {
 	height: 25px;
 	aspect-ratio: 1/1;
 	position: absolute;
 	margin: calc(15px / 2) 5px;
-	filter:  contrast(0) brightness(10);
+	filter: contrast(0) brightness(10);
 	left: 0;
 }
 
-.user-option:hover > img{
-/*	filter: contrast(100%) brightness(1.0);*/
+.user-option-item:hover>img {
+	/*	filter: contrast(100%) brightness(1.0);*/
+}
+
+.user-bg {
+	height: var(--innerH, 100vh);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+#user[mode="open"] #user-options {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#user[mode="close"] #user-options
+{
+	opacity: 0;
+	transform: translateY(-5px) scale(0);
+}
+
+#user-option {
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.login-btn {
+	/* background-color: royalblue; */
+	color: #eee;
+	border-radius: 5px;
+	display: block;
+	margin: 5px 5px 5px auto;
+}
+
+.login-btn:hover {
+	background-color: #ddd;
+}
+
+.login-btn:active {
+	transform: scale(0.9);
+}
+
+.login-btn > img {
+	height: 30px;
+	aspect-ratio: 1/1;
+	margin: 5px;
 }

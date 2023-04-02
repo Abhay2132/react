@@ -2,7 +2,9 @@ import React , {Suspense, lazy} from "react";
 
 import {
   createBrowserRouter,
+  createRoutesFromElements,
   RouterProvider,
+  Route
 } from "react-router-dom";
 
 import Loader  from "./ui/panels/loader"
@@ -19,66 +21,37 @@ const Login = lazy(()=>import("./routes/user/login"));
 const SignUp = lazy(()=>import("./routes/user/signup"));
 const Reset = lazy(()=> import("./routes/user/reset"));
 
-const element = (Component) => {
+const element = (Element) => {
   return (
     <Suspense fallback={Loader()} >
-        <Component/>
+        <Element/>
     </Suspense>
   )
 }
 
+const a = (path, el) => ({path, element : element(el)})
+
 const router = createBrowserRouter([
   {
-    path: "/react", 
-    // element: <Root />,
+    path: "/", 
     element: element(Root),
     errorElement: element(ErrorPage),
     children: [
-      {
-        path: "ytdl",
-        element: element(YTDL) ,
-      },
-      {
-        path: "imgD",
-        element: element(ImgD) ,
-      },
-      {
-        path:"notebook",
-        element: element(NoteBook) ,
-      },
-      {
-        path:"notebook/*",
-        // loader: getBookID,
-        // element : <NoteBook isChild={true} />
-        element: element(NoteBook) ,
-      },
-      {
-        path:"settings",
-        element: element(Settings) ,
-      },
-      {
-        path: "",
-        element: element(Index) ,
-      },
-      {
-        path: "about",
-        element : element(About)
-      },
-      {
-        path: "login",
-        element: element(Login)
-      },
-      {
-        path: "signup",
-        element: element(SignUp)
-      },
-      {
-        path: "reset",
-        element: element(Reset)
-      }
+      a("", Index),
+      a("imgD", ImgD),
+      a("ytdl", YTDL),
+      a("notebook", NoteBook),
+      a("notebook/*", NoteBook),
+      a("about", About),
+      a("settings", Settings),
+      a("login", Login),
+      a("signup", SignUp),
+      a("reset", Reset)
     ],
   },
-]);
+]
+,{basename:"/react"}
+);
 
 export default function App (){
   return(
@@ -87,4 +60,3 @@ export default function App (){
   </React.StrictMode>
 )
 }
-

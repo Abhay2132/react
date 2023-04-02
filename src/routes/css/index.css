@@ -48,27 +48,27 @@ a {
 	text-decoration: none !important;
 }
 
-a[href="/imgD"] {
+a[data-href="imgD"] {
 	background: linear-gradient(45deg, gold, greenyellow);
 }
 
-a[href="/imgD"] .index-img{
+a[data-href="imgD"] .index-img{
 	background: linear-gradient(30deg, yellowgreen, green);
 }
 
-a[href="/ytdl"] {
+a[data-href="ytdl"] {
 	background: linear-gradient(45deg, lightgoldenrodyellow, coral);
 }
 
-a[href="/ytdl"] .index-img{
+a[data-href="ytdl"] .index-img{
 	background: linear-gradient(30deg, darkred, orangered);
 }
 
-a[href="/notebook"] {
+a[data-href="notebook"] {
 	background-image: linear-gradient(250deg, #cd9cf2 0%, #f6f3ff 100%);
 }
 
-a[href="/notebook"] .index-img{
+a[data-href="notebook"] .index-img{
 	background: linear-gradient(30deg, darkred, orangered);
 	background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
 	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

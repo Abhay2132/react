@@ -12,9 +12,9 @@ export default function Component (){
 	const [data , setData] = useState(true)
 	
 	return(<div id="index" className="app">
-		<Link to={`/imgD`} className="index-link"><IndexItem name="ImgD" /></Link>
-		<Link to={`/ytdl`} className="index-link"><IndexItem name="YTDL" /></Link>
-		<Link to={`/notebook`} className="index-link"><IndexItem name="NoteBook" /></Link>
+		<Link to={`/imgD`} data-href="imgD" className="index-link"><IndexItem name="ImgD" /></Link>
+		<Link to={`/ytdl`} data-href="ytdl" className="index-link"><IndexItem name="YTDL" /></Link>
+		<Link to={`/notebook`} data-href="notebook" className="index-link"><IndexItem name="NoteBook" /></Link>
 	</div>)
 }
 

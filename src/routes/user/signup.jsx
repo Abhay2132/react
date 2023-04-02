@@ -9,7 +9,7 @@ export default function (){
         document.title = "SignUp"
     }, [])
     return (
-        <div id="login">
+        <div id="signup" className="mobile-box" >
             <h3 id="login-title">Enter SignUp Details </h3>
             <div id="login-form">
                 <Input1 label="Email" />

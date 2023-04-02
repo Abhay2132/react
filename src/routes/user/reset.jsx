@@ -9,7 +9,7 @@ export default function (){
         document.title = "Reset"
     }, [])
     return (
-        <div id="login">
+        <div id="login" className="mobile-box">
             <h3 id="login-title">Enter Your Details </h3>
             <div id="login-form">
                 <Input1 label="Email" />

@@ -1,0 +1,11 @@
+.mobile-box {
+    width: min(100%, 400px);
+    /* height: var(--innerH, 100vh); */
+}
+
+@media only screen and (min-width: 600px) {
+    .mobile-box{
+        position: relative;
+        left: calc(50% - 200px);
+    }
+}

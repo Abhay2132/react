@@ -1,4 +1,4 @@
-#login {
+#login, #signup {
     /* background-color: red;     */
     margin: 5px;
     border-radius: 10px;
@@ -21,6 +21,6 @@
     padding: 10px;
 }
 
-#login a {
+#login a , #signup a{
     color: royalblue;
 }

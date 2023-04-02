@@ -72,10 +72,6 @@
 	left: 0;
 }
 
-.user-option-item:hover>img {
-	/*	filter: contrast(100%) brightness(1.0);*/
-}
-
 .user-bg {
 	height: var(--innerH, 100vh);
 	position: fixed;

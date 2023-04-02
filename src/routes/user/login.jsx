@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./login.css";
 import { Input1, Button } from "../../ui/form/views";
 import { useEffect } from "react";
+import "../../ui/frames/mobile.css"
 
 export default function (){
     useEffect(()=>{
@@ -9,7 +10,7 @@ export default function (){
         document.title = "LOGIN"
     }, [])
     return (
-        <div id="login">
+        <div id="login" className="mobile-box">
             <h3 id="login-title">Enter Login Details </h3>
             <div id="login-form">
                 <Input1 label="Email" />

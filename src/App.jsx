@@ -29,7 +29,7 @@ const element = (Component) => {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/react", 
     // element: <Root />,
     element: element(Root),
     errorElement: element(ErrorPage),
